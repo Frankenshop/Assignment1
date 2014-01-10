@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>WEEEEEEEEEEE</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<link href='http://fonts.googleapis.com/css?family=Creepster' rel='stylesheet' type='text/css'>
+<style>
+body {
+	font-family : 'Creepster' cursive;	
+}
+</style>
+<script>
+$(document).ready(function(){
+	$.ajaxSetup({cache:true});
+	$.getScript('//connect.facebook.net/en_UK/all.js', function(){
+
+		FB.init({
+			appId: "401025210026348",
+			channelUrl: "//localhost:8888/channel.html",
+			xfbml: true
+		});
+		
+		console.log(FB);
+		FB.getLoginStatus(function(resp){
+			console.log(resp);
+			if (resp.status=="not_authorized"){
+				FB.login(function(resp){
+					//console.log(resp);
+				});
+			}
+			else if (resp.status=="unknown"){
+				FB.login(function(resp){
+					
+				});
+			}
+			
+			if(resp.status=="connected"){
+				FB.api("/me", function(resp){
+					console.log(resp);
+				});
+			}
+		});
+	});
+	
+});
+</script>
+<body>
+<div id='fb-root'></div>
+THE FONT IS AMAZING
+<div class="fb-like" data-href="http://google.com" data-colorscheme="light" data-layout="standard" data-action="like" data-show-faces="true" data-send="false"></div>
+<div class="fb-post" data-href="https://www.facebook.com/FacebookDevelopers/posts/10151471074398553"></div>
+<div class="fb-comments" data-href="http://google.com/Idontknow" data-numposts="5"></div>
+<div class="fb-activity" data-site="http://google.com" data-action="likes, recommends" data-colorscheme="light" data-header="true"></div>
+</body>
+</html>
